@@ -9,8 +9,11 @@ const createStudentModel = require('./student.js')
 //if there is no NODE_ENV set, like in your cpmputer, we'll use the value 'development'
 const env = process.env.NODE_ENV || 'development'
 
-const config =configJson[env]
+const dbPassword = process.env.DB_PASSWORD
+
+const config = configJson[env]
 //read the db configuration object for 'developement' or 'production'
+config.password = dbPassword
 
 const sequelize = new Sequelize(config)
 

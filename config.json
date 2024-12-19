@@ -4,8 +4,9 @@
         "dialect": "sqlite"
     },
     "production": {
-        "username0": "YOUR_USERNAME",
-        "host": "YOUR_DATABASE_SERVER.database.windows.net",
+        "username0": "sara",
+        "host": "student-signi-in-database-server-sara.database.windows.net",
+        "database": "student-sign-in-database",
         "dialect": "mssql"
     }
 

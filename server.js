@@ -1,10 +1,15 @@
 //importing required modules
 const express = require('express') //to build web servers and handle HTTP requests
 const apiRoutes = require('./routes/api') //handle API requests
-
+const path = require('path')
 
 //create web application server
 const app = express()
+
+const staticFilePath = path.join(__dirname, 'client', 'dist')
+const staticFiles = express.static(staticFilePath)
+app.use('/', staticFiles) //request to home page
+//server static file - vue app index.html
 
 //to parse JSON requests makes the json data avaiable and essential for hanling post requests
 app.use(express.json())
@@ -14,7 +19,7 @@ app.use('/api', apiRoutes)
 
 //404 error handler for undefined routes
 app.use(function(req, res, next){
-    res.status(400).send('Sorry, not found') //esponds with a 400 Bad Request
+    res.status(400).send('Sorry, page not found') //esponds with a 400 Bad Request
     //todo -- can not find a matching route
 })
 
